@@ -1,0 +1,26 @@
+.headerContainer{
+  width: 100%;
+  height: 20vh;
+  max-height: 100px;
+  text-align: center;
+  background-color: red;
+  margin-top: 200px;
+}
+.h1-container{
+  top:50%;
+  left:50%;
+  width:62px;
+  height:50px;
+  color: white;
+  position:absolute;
+  text-align:center;
+  background-color:black;
+  margin: -25px 0 0 -31px;
+}
+
+.h1 {
+  top: 300px;
+  margin:auto;
+  line-height:50px;
+  vertical-align:middle;
+}
