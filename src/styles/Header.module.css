@@ -3,7 +3,8 @@
   height: 20vh;
   max-height: 200px;
   text-align: center;
-  background-color: #884A39;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(195, 129, 84, 1) 44%, rgba(255, 194, 111, 1) 100%);
 }
 
 .h1-container {
@@ -17,6 +18,38 @@
   background-color: transparent;
   /*margin: -25px 0 0 -31px;
 */
+}
+
+.image {
+  animation: MoveUpDown 4s linear infinite;
+  position: relative;
+  left: 25%;
+  overflow: visible;
+}
+
+@keyframes MoveUpDown {
+
+  0%,
+  100% {
+    top: 0;
+  }
+
+  50% {
+    top: 25px;
+  }
+}
+@media only screen and (max-width: 1137px) {
+  .image {
+    left: 45vw;
+  }
+}
+@media only screen and (max-width: 635px) {
+  .image {
+    width: 250px;
+    height: auto;
+    left: auto;
+    margin-top: 30px;
+  }
 }
 
 .h1 {
