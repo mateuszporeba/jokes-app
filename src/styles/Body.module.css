@@ -1,6 +1,7 @@
 .body-container {
   width: 100vw;
-  height: 100vh;
+  height: 100vh; 
+  
   background: rgb(255, 194, 111);
   background: linear-gradient(180deg, rgba(255, 194, 111, 1) 0%, rgba(195, 129, 84, 1) 44%, rgba(249, 224, 187, 1) 100%);
   

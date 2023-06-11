@@ -3,14 +3,26 @@
   margin: auto;
   transform: translateY(50px);
   text-align: center;
-  
+  background: #e0e0e0;
+  box-shadow: 15px 15px 30px #bebebe,
+             -15px -15px 30px #ffffff;
   width: 300px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+.card {
+  height: fit-content;
+  
+
 }
 
 
 /* Underline From Left */
 .hvr-underline-from-left {
-  margin-left: 25px;
+  margin-left: 10px;
   font-size: 15px;
   font-family: Arial;
   width: 60px;
@@ -55,7 +67,6 @@
 }
 
 .hvr-underline-from-left:hover:before,
-.hvr-underline-from-left:focus:before,
 .hvr-underline-from-left:active:before {
   right: 0;
 }
@@ -107,7 +118,6 @@
 }
 
 .hvr-underline-from-center:hover:before,
-.hvr-underline-from-center:focus:before,
 .hvr-underline-from-center:active:before {
   left: 0;
   right: 0;
@@ -160,7 +170,6 @@
 }
 
 .hvr-underline-from-right:hover:before,
-.hvr-underline-from-right:focus:before,
 .hvr-underline-from-right:active:before {
   left: 0;
 }

@@ -2,8 +2,8 @@
   position: relative;
   margin: auto;
   transform: translateY(80px);
-
-
-  background-color: red;
+  /* background-color: red; */
   width: 300px;
+  gap: 50px;
+  text-align: center;
 }
