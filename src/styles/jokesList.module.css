@@ -5,8 +5,10 @@
   display: grid;
   gap: 1rem;
   max-height: 70vh;
-  overflow-y: scroll;
   /* animation: meals-appear 1s ease-out; */
+}
+.overflowY{
+  overflow-y: scroll;
 }
 
 
