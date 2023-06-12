@@ -37,6 +37,26 @@ export default function JokesContainer() {
     console.log(jokes);
   }
 
+  const get10Jokes = async () => {
+    const result = await fetch('https://official-joke-api.appspot.com/random_ten');
+    const data = await result.json();
+
+    // if (JSON.stringify(jokes) === '[{}]') {
+    //   setJokes([{ id: data.id, type: data.type, setup: data.setup, punchline: data.punchline, key: uuid() }]);
+    // }
+    // else {
+      data.map(j => (
+        setJokes(
+          prevJokes => {
+            const updatedJokes = [...prevJokes];
+            updatedJokes.unshift({ id: j.id, type: j.type, setup: j.setup, punchline: j.punchline, key: uuid() })
+            return updatedJokes;
+          })
+      ));
+    //}
+    console.log(jokes);
+  }
+
   let content = ('');
   if (jokes.length > 0 && JSON.stringify(jokes) != '[{}]') {
     content = (
@@ -46,12 +66,12 @@ export default function JokesContainer() {
 
   const onClearContentHandler = () => {
     setJokes([{}]);
-console.log('clear');
+    console.log('clear');
   }
 
   return (
     <div>
-      <JokesController getOneJoke={getJoke} clearContent={onClearContentHandler}/>
+      <JokesController getOneJoke={getJoke} get10Jokes={get10Jokes} clearContent={onClearContentHandler} />
       <div className={styles['jokes-container']}>
         {content}
 
