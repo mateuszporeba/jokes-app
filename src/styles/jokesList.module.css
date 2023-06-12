@@ -11,6 +11,11 @@
   overflow-y: scroll;
 }
 
+@media only screen and (max-width: 635px) {
+  .jokes {
+    max-height: 50vh;
+  }
+}
 
 /* @keyframes meals-appear {
   from {
