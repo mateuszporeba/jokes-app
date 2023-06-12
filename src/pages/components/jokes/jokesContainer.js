@@ -10,14 +10,6 @@ import uuid from 'react-uuid';
 export default function JokesContainer() {
 
   const [jokes, setJokes] = useState([{}]);
-  // const [jokes, setJokes] = useState([
-  //   {
-  //     setup: "What did the ocean say to the shore?",
-  //     id: '32',
-  //     data: 'general',
-  //     punchline: "Nothing, it just waved."
-  //   }
-  // ]);
 
   const getJoke = async () => {
     const result = await fetch('https://official-joke-api.appspot.com/random_joke');
@@ -34,7 +26,6 @@ export default function JokesContainer() {
           return updatedJokes;
         });
     }
-    console.log(jokes);
   }
 
   const get10Jokes = async () => {
@@ -62,9 +53,6 @@ export default function JokesContainer() {
           })
       ));
     }
-
-
-
   }
 
   let content = ('');

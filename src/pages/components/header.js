@@ -1,9 +1,9 @@
 import React from 'react'
 import styles from '../../styles/header.module.css'
 
-import Image from 'next/image';
-//import pelikanImage from '@/images/pelikan.png';
+import Image from 'next/image'
 import Pelikan from '@/images/pelikan.png'
+
 export default function Header() {
 
   return (

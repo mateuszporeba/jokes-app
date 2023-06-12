@@ -8,16 +8,9 @@ const [showOverflowY, setShowOverflowY] = useState(false);
 
 useEffect(() => {
   if(props.jokes.length >= 5){
-    
     setShowOverflowY(true);
-    console.log('overflow true:    '+ showOverflowY);
   }else{
     setShowOverflowY(false);
-    console.log('overflow false:    '+ showOverflowY);
-  }
-
-  return () => {
-    
   }
 }, [props.jokes.length > 5])
 

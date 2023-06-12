@@ -3,12 +3,6 @@ import styles from '../../../styles/jokesController.module.css'
 
 export default function JokesController(props) {
 
-const tenJokesHandler = () =>{
-  console.log('10 reobi');
-}
-
-
-
   return (
     <div className={styles['controller-container']}>
       <button className={styles['hvr-underline-from-left']} onClick={() => props.getOneJoke()}>+1</button>
