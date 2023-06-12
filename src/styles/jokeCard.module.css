@@ -2,6 +2,7 @@
   text-align: center;
 }
 .card {
+  position: relative;
   width: 200px;
   height: fit-content;
   border-radius: 10px;
@@ -65,3 +66,11 @@
   left: 0;
   right: 0;
 } 
+
+.confetti{
+  background-color: transparent;
+  position: absolute;
+  bottom: -60px;
+  left: 25%;
+}
+
