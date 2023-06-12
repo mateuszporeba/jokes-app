@@ -7,7 +7,6 @@ import JokeCard from '../jokes/jokeCard'
 export default function JokesList(props) {
 const [showOverflowY, setShowOverflowY] = useState(false);
 const matches = useMediaQuery('(max-width: 635px)');
-console.log(matches);
 
 useEffect(() => {
   if(props.jokes.length >= matches?3:5){
