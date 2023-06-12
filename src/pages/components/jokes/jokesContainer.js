@@ -41,10 +41,18 @@ export default function JokesContainer() {
     const result = await fetch('https://official-joke-api.appspot.com/random_ten');
     const data = await result.json();
 
-    // if (JSON.stringify(jokes) === '[{}]') {
-    //   setJokes([{ id: data.id, type: data.type, setup: data.setup, punchline: data.punchline, key: uuid() }]);
-    // }
-    // else {
+    if (JSON.stringify(jokes) === '[{}]') {
+      setJokes([{ id: data[0].id, type: data[0].type, setup: data[0].setup, punchline: data[0].punchline, key: uuid() }]);
+      data.slice(1).map(j => (
+        setJokes(
+          prevJokes => {
+            const updatedJokes = [...prevJokes];
+            updatedJokes.unshift({ id: j.id, type: j.type, setup: j.setup, punchline: j.punchline, key: uuid() })
+            return updatedJokes;
+          })
+      ));
+    }
+    else {
       data.map(j => (
         setJokes(
           prevJokes => {
@@ -53,8 +61,10 @@ export default function JokesContainer() {
             return updatedJokes;
           })
       ));
-    //}
-    console.log(jokes);
+    }
+
+
+
   }
 
   let content = ('');
