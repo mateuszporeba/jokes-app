@@ -1,20 +1,20 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import { useMediaQuery } from 'usehooks-ts';
 import styles from '../../../styles/jokesList.module.css'
 
 import JokeCard from '../jokes/jokeCard'
 
 export default function JokesList(props) {
-const [showOverflowY, setShowOverflowY] = useState(false);
-const matches = useMediaQuery('(max-width: 635px)');
+  const [showOverflowY, setShowOverflowY] = useState(false);
+  const matches = useMediaQuery('(max-width: 635px)');
 
-useEffect(() => {
-  if(props.jokes.length >= matches?3:5){
-    setShowOverflowY(true);
-  }else{
-    setShowOverflowY(false);
-  }
-}, [props.jokes.length >= matches?3:5])
+  useEffect(() => {
+    if (props.jokes.length >= matches ? 3 : 5) {
+      setShowOverflowY(true);
+    } else {
+      setShowOverflowY(false);
+    }
+  }, [props.jokes.length >= matches ? 3 : 5])
 
 
 

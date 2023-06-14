@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react'
 import styles from '../../../styles/jokeCard.module.css'
 
 import Image from 'next/image'
-//import Confetti from '@/images/confetti-on-transparent-background.gif'
 import Spark from '@/images/spark.gif'
 
 export default function Joke(props) {
 
   const [showPunchline, setShowPunchline] = useState(false);
   const [showSpark, setShowSpark] = useState(true);
+
 
   const setup = props.setup;
   const punchline = props.punchline;
@@ -19,7 +19,6 @@ export default function Joke(props) {
 
   useEffect(() => {
     if (showPunchline) {
-      console.log('use E! ');
       setTimeout(() => {
         setShowSpark(false);
       }, 700);
@@ -33,14 +32,16 @@ export default function Joke(props) {
       <h3>{setup}</h3>
       <hr></hr>
       {showPunchline && <>
-        {showSpark &&
+        {showSpark && <>
+          <audio autoPlay src="/medium-explosion.mp3" />
           <Image
             className={styles.confetti}
             src={Spark}
             width={200}
             height={200}
             alt="confetti"
-          />}
+          />
+        </>}
         <h2>{punchline}</h2>
       </>
       }
