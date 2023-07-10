@@ -9,14 +9,12 @@ export default function JokesList(props) {
   const matches = useMediaQuery('(max-width: 635px)');
 
   useEffect(() => {
-    console.log('matches:  '+matches);
-    console.log('props.jokes.length >= (matches ? 3 : 5):  '+props.jokes.length >= (matches ? 3 : 5));
     if (props.jokes.length >= (matches ? 3 : 5)) {
       setShowOverflowY(true);
     } else {
       setShowOverflowY(false);
     }
-}, [props.jokes.length])
+  }, [props.jokes.length])
 
 
   return (
@@ -28,6 +26,7 @@ export default function JokesList(props) {
           type={j.type}
           setup={j.setup}
           punchline={j.punchline}
+          sound={props.sound}
         />
       ))}
     </div>

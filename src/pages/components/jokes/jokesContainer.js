@@ -10,10 +10,15 @@ import uuid from 'react-uuid';
 export default function JokesContainer() {
 
   const [jokes, setJokes] = useState([{}]);
+  const [sound, setSound] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   const getJoke = async () => {
+    setIsLoading(true);
+    console.log(isLoading);
     const result = await fetch('https://official-joke-api.appspot.com/random_joke');
     const data = await result.json();
+    setIsLoading(false);
 
     if (JSON.stringify(jokes) === '[{}]') {
       setJokes([{ id: data.id, type: data.type, setup: data.setup, punchline: data.punchline, key: uuid() }]);
@@ -29,8 +34,10 @@ export default function JokesContainer() {
   }
 
   const get10Jokes = async () => {
+    setIsLoading(true);
     const result = await fetch('https://official-joke-api.appspot.com/random_ten');
     const data = await result.json();
+    setIsLoading(false);
 
     if (JSON.stringify(jokes) === '[{}]') {
       setJokes([{ id: data[0].id, type: data[0].type, setup: data[0].setup, punchline: data[0].punchline, key: uuid() }]);
@@ -57,23 +64,32 @@ export default function JokesContainer() {
 
   let content = ('');
   if (jokes.length > 0 && JSON.stringify(jokes) != '[{}]') {
+
     content = (
-      <JokesList jokes={jokes} />
+      <div>
+        {isLoading && <div class={styles['lds-roller']}><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>}
+        <JokesList jokes={jokes} sound={sound} />
+      </div>
     );
+  } else if (isLoading) {
+    content = (
+      <div class={styles['lds-roller']}><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    )
   }
 
   const onClearContentHandler = () => {
     setJokes([{}]);
-    console.log('clear');
+  }
+
+  const onSound = () => {
+    setSound(!sound);
   }
 
   return (
     <div>
-      <JokesController getOneJoke={getJoke} get10Jokes={get10Jokes} clearContent={onClearContentHandler} />
+      <JokesController getOneJoke={getJoke} get10Jokes={get10Jokes} clearContent={onClearContentHandler} sound={onSound} />
       <div className={styles['jokes-container']}>
         {content}
-
-
       </div>
     </div>
   )

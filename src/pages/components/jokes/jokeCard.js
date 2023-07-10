@@ -33,7 +33,9 @@ export default function Joke(props) {
       <hr></hr>
       {showPunchline && <>
         {showSpark && <>
-          <audio autoPlay src="/medium-explosion.mp3" />
+          {props.sound &&
+            <audio autoPlay src="/medium-explosion.mp3" />
+          }
           <Image
             className={styles.confetti}
             src={Spark}
